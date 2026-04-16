@@ -23,18 +23,19 @@ function createDivs(size) {
 
         let opacity = div.style.opacity;
         if(opacity === '') {
-            opacity = '0.1';
+            opacity = '0.55';
         } else if(opacity !== '1') {
-            opacity = String(parseFloat(opacity) + 0.1);
+            opacity = String(parseFloat(opacity) + 0.05);
         }
         
         div.style.opacity = opacity;
         
     });
     
-    div.addEventListener('mouseleave', () => {
-        div.style.backgroundColor = '';
-    });
+    //To remove bg-color of the squares once mouse leaves
+    // div.addEventListener('mouseleave', () => {
+    //     div.style.backgroundColor = '';
+    // });
 
     container.appendChild(div);
     
@@ -45,8 +46,8 @@ function createGrid(n) {
 
     let cWidth = container.clientWidth;
      
-    let size = (cWidth / n) - 2;
-
+    // let size = (cWidth / n) - 2; //due to adding 1px border to the squares
+    let size = (cWidth / n);
     container.replaceChildren();
 
     for(let i=0; i<n*n; i++) {
